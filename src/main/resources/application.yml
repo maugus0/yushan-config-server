@@ -1,0 +1,52 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  
+  cloud:
+    config:
+      server:
+        # Git Backend Configuration
+        git:
+          uri: https://github.com/maugus0/yushan-config-server.git
+          # If private repo, use SSH or add credentials
+          # username: your-github-username
+          # password: your-github-token
+          default-label: main
+          clone-on-start: true
+          # Search for config files in the root directory
+          search-paths: /
+        
+        # Native Backend (for local development/testing)
+        # Uncomment to use local filesystem instead of Git
+        # native:
+        #   search-locations: classpath:/configs,file:./configs
+
+# Eureka Configuration
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,refresh
+  endpoint:
+    health:
+      show-details: always
+
+# Logging
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+    com.yushan.config: DEBUG
