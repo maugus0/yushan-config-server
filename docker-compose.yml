@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # Config Server
+  config-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yushan-config-server
+    ports:
+      - "8888:8888"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://yushan-eureka-registry:8761/eureka/
+    networks:
+      - yushan-platform-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+networks:
+  yushan-platform-network:
+    external: true
