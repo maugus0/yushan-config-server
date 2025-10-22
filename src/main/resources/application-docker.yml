@@ -1,12 +1,15 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://yushan-eureka-registry:8761/eureka/
 
 spring:
   cloud:
     config:
       server:
+        # Native Backend (for local development/testing)
+        native:
+          search-locations: classpath:/configs,file:./configs
+        # Disable Git backend completely
         git:
-          uri: https://github.com/maugus0/yushan-config-server.git
-          default-label: main
+          enabled: false
