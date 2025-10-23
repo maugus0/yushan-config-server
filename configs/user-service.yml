@@ -129,6 +129,8 @@ jwt:
   secret: ${JWT_SECRET:yushan-micro-service-secret-key-for-jwt-token-generation-and-validation-2024}
   issuer: ${JWT_ISSUER:yushan-micro-service}
   algorithm: ${JWT_ALGORITHM:HS256}
+  access-token.expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:3600000}  # 1 hour in milliseconds
+  refresh-token.expiration: ${JWT_REFRESH_TOKEN_EXPIRATION:86400000}  # 24 hours in milliseconds
 
 # Logging Configuration
 logging:
