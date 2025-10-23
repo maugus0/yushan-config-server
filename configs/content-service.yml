@@ -54,7 +54,7 @@ spring:
   # Elasticsearch Configuration
   elasticsearch:
     rest:
-      uris: ${ELASTICSEARCH_URL:http://localhost:9200}
+      uris: ${ELASTICSEARCH_SCHEME:http}://${ELASTICSEARCH_HOST:localhost}:${ELASTICSEARCH_PORT:9200}
       connection-timeout: 5
       read-timeout: 30
 
