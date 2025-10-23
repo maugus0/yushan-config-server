@@ -127,13 +127,9 @@ mybatis:
 
 # JWT Configuration
 jwt:
-  secret: "yushan-content-service-secret-key-for-jwt-token-generation-and-validation-2024"
-  issuer: "yushan-content-service"
-  algorithm: "HS256"
-  access-token:
-    expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:900000}  # 15 minutes in milliseconds
-  refresh-token:
-    expiration: ${JWT_REFRESH_TOKEN_EXPIRATION:604800000}  # 7 days in milliseconds
+  secret: ${JWT_SECRET:yushan-micro-service-secret-key-for-jwt-token-generation-and-validation-2024}
+  issuer: ${JWT_ISSUER:yushan-micro-service}
+  algorithm: ${JWT_ALGORITHM:HS256}
 
 # Logging Configuration
 logging:
