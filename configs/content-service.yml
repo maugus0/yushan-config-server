@@ -58,6 +58,11 @@ spring:
       connection-timeout: 15
       read-timeout: 30
 
+# Search Configuration - ENABLE Elasticsearch
+search:
+  elasticsearch:
+    enabled: true
+
   # Kafka Configuration (Phase 2)
   kafka:
     bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
