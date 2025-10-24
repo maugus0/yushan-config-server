@@ -55,7 +55,7 @@ spring:
   elasticsearch:
     rest:
       uris: ${ELASTICSEARCH_URL:http://localhost:9200}
-      connection-timeout: 5
+      connection-timeout: 15
       read-timeout: 30
 
   # Kafka Configuration (Phase 2)
