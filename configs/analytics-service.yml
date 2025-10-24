@@ -72,7 +72,7 @@ spring:
         buffer-memory: 33554432
         acks: all
         enable-idempotence: true
-        compression-type: snappy
+        compression-type: none
         request-timeout-ms: 30000
         delivery-timeout-ms: 120000
         properties:

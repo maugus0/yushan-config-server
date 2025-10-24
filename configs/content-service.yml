@@ -83,8 +83,8 @@ search:
       linger-ms: 5
       buffer-memory: 33554432
       acks: all
+      compression-type: none
       enable-idempotence: true
-      compression-type: snappy
       request-timeout-ms: 30000
       delivery-timeout-ms: 120000
       topic:
