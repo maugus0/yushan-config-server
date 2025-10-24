@@ -44,12 +44,25 @@ spring:
       auto-offset-reset: earliest
       enable-auto-commit: false
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       properties:
         spring.json.trusted.packages: "*"
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      client-id: user-service
+      retries: 3
+      batch-size: 16384
+      linger-ms: 5
+      buffer-memory: 33554432
+      acks: all
+      enable-idempotence: true
+      compression-type: none
+      request-timeout-ms: 30000
+      delivery-timeout-ms: 120000
+      properties:
+        spring.json.add.type.headers: false
+        spring.json.use.type.headers: false
 
   mail:
     host: ${MAIL_HOST:smtp.qq.com}
